@@ -1,38 +1,38 @@
-# Aether AI | Premium Intelligent Chatbot
+# Aether AI | Premium Enterprise-Grade Intelligent Chatbot
 
-Aether AI is a highly polished, modern, and responsive AI chatbot application. It features a secure **Node.js/Express backend** that interfaces with Google's Gemini API and a beautiful **vanilla HTML/CSS/JS frontend** boasting a glassmorphic dark-theme design.
+Aether AI is a **premium, high-performance, and responsive AI chatbot application** engineered using a modern decoupled architecture. The system features a secure, stateless **Node.js/Express backend** that interfaces with Google's state-of-the-art Gemini API and a highly optimized **vanilla HTML/CSS/JS frontend** boasting a premium glassmorphic design system.
 
 ---
 
 ## 🌟 Key Features
 
-* **Real-Time Response Streaming**: Generates responses character-by-character (using Server-Sent Events) to provide a fluid, instant feedback loop.
-* **Premium Glassmorphic UI**: Sleek, modern styling utilizing HSL color palettes, custom gradients, `backdrop-filter` blurs, and smooth animations.
-* **Responsive Layout**: Sidebar collapses on mobile screens into a slide-out drawer with overlay backdrops.
-* **Local Session Persistence**: All conversations are stored in the browser's `localStorage` so you can close your tab, return later, and resume or delete past chats.
-* **Rich Markdown Rendering**: Automatically parses Markdown output into clean HTML elements (lists, bold text, inline code, etc.).
-* **Advanced Code Highlighting**: Automatically detects code blocks, highlights their syntax based on the programming language, and includes a **one-click "Copy" button** with visual feedback.
-* **Prompt Suggestions**: Interactive quick-start prompt cards on the welcome screen to help you get started.
-* **Theme Toggling**: Seamless transition between Dark Mode and Light Mode.
+* **Asynchronous Stream Consumption**: Utilizes the **Server-Sent Events (SSE) protocol** via `/api/chat` to stream responses in real-time, delivering a premium, low-latency conversational interface.
+* **Premium Glassmorphic Design System**: Styled using a custom-tailored design system with **HSL dynamic theme tokens**, `backdrop-filter` blur effects, subtle translucent borders, and hardware-accelerated CSS keyframe animations.
+* **Responsive Layout Architecture**: Features a fluid sidebar navigation that collapses on mobile devices into an overlay drawer utilizing a hardware-accelerated slide-in transition.
+* **State Persistence & Serialization**: Implements local session serialization to `localStorage`, allowing users to maintain, restore, or purge conversational history across sessions.
+* **Abstract Syntax Tree (AST) Markdown Parsing**: Uses `marked` to parse markdown outputs into semantic HTML5 structures securely, avoiding raw HTML injections.
+* **Contextual Code Highlight Engine**: Dynamically detects code block languages, processes them via the **PrismJS syntax highlighter**, and injects a premium **one-click Clipboard API copy button** with interactive state feedback.
+* **Interactive Prompt Bootstrapping**: Features pre-configured suggestion cards on the welcome screen that trigger instant UI input injection and submission.
+* **Dynamic Theme Swapper**: Instantaneous client-side theme swapping (Dark/Light) utilizing CSS custom properties.
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technical Stack
 
-### Backend
-* **Node.js**: Server runtime environment.
-* **Express.js**: Minimalist web framework for routing and serving static files.
-* **Google Generative AI SDK (`@google/generative-ai`)**: Official SDK used to communicate with the `gemini-2.5-flash` model.
-* **Dotenv**: Loads environment variables from a `.env` file for secure API key management.
-* **CORS**: Enables cross-origin resource sharing.
+### Backend Architecture
+* **Node.js**: Asynchronous event-driven JavaScript runtime.
+* **Express.js**: High-performance HTTP utility middleware for routing and serving static assets.
+* **Google Generative AI SDK (`@google/generative-ai`)**: Official client library interfacing with the `gemini-2.5-flash` model.
+* **Dotenv**: Secure environment variable injector for API key encapsulation.
+* **CORS**: Cross-Origin Resource Sharing middleware for API request validation.
 
-### Frontend
-* **HTML5**: Semantic markup.
-* **Vanilla CSS**: Responsive grids, flexbox layouts, CSS custom variables, glassmorphism, and keyframe animations.
-* **Vanilla JavaScript (ES6+)**: Handles user interaction, DOM manipulation, SSE stream reading, and local storage management.
-* **Lucide Icons**: Clean, consistent vector icons.
-* **Marked**: A fast, lightweight Markdown parser.
-* **Prism.js**: Robust code syntax highlighting.
+### Frontend Architecture
+* **Semantic HTML5**: Clean, SEO-optimized document object model (DOM) structure.
+* **Vanilla CSS**: Premium styling utilizing custom properties, CSS Grid, Flexbox, and transition matrices.
+* **Vanilla JavaScript (ES6+)**: Event-driven client-side controller executing stream decoding, DOM diffing, and localStorage state management.
+* **Lucide Icons**: SVG-based vector icons.
+* **Marked**: High-speed Markdown compiler.
+* **Prism.js**: Lightweight, extensible syntax highlighting engine.
 
 ---
 
