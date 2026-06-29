@@ -66,24 +66,14 @@ window.copyCode = function(button) {
 
   navigator.clipboard.writeText(textToCopy).then(() => {
     // Visual feedback
-    const span = button.querySelector('span');
-    const icon = button.querySelector('i');
-    
-    span.textContent = 'Copied!';
+    button.innerHTML = `<i data-lucide="check" class="copy-icon"></i><span>Copied!</span>`;
     button.style.color = 'var(--success)';
-    
-    if (icon) {
-      icon.setAttribute('data-lucide', 'check');
-      lucide.createIcons();
-    }
+    lucide.createIcons();
 
     setTimeout(() => {
-      span.textContent = 'Copy';
+      button.innerHTML = `<i data-lucide="copy" class="copy-icon"></i><span>Copy</span>`;
       button.style.color = '';
-      if (icon) {
-        icon.setAttribute('data-lucide', 'copy');
-        lucide.createIcons();
-      }
+      lucide.createIcons();
     }, 2000);
   }).catch(err => {
     console.error('Failed to copy code: ', err);
@@ -116,12 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- Theme Toggle ---
 function updateThemeIcon(theme) {
-  const icon = themeToggleBtn.querySelector('i');
-  if (theme === 'light') {
-    icon.setAttribute('data-lucide', 'sun');
-  } else {
-    icon.setAttribute('data-lucide', 'moon');
-  }
+  const iconName = theme === 'light' ? 'sun' : 'moon';
+  themeToggleBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
   lucide.createIcons();
 }
 
