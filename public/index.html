@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aether AI | Premium Intelligent Chatbot</title>
+  
+  <!-- Google Fonts - Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Marked Markdown Parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <!-- Prism.js Syntax Highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <div class="logo-icon">
+            <i data-lucide="sparkles"></i>
+          </div>
+          <span class="logo-text">Aether AI</span>
+        </div>
+        <button class="icon-btn mobile-close-btn" id="sidebar-close-btn" aria-label="Close Sidebar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <button class="new-chat-btn" id="new-chat-btn">
+        <i data-lucide="plus"></i>
+        <span>New Chat</span>
+      </button>
+
+      <!-- Chat History Section -->
+      <div class="chat-history-container">
+        <div class="section-title">Recent Conversations</div>
+        <div class="chat-list" id="chat-list">
+          <!-- Dynamically populated chats will go here -->
+          <div class="chat-list-empty">
+            <i data-lucide="message-square-dashed"></i>
+            <p>No recent chats</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="avatar">U</div>
+          <div class="user-info">
+            <span class="user-name">Guest User</span>
+            <span class="user-status">Local Session</span>
+          </div>
+        </div>
+        <button class="icon-btn theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+          <i data-lucide="moon"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Chat Area -->
+    <main class="main-content">
+      <!-- Top Navigation Bar -->
+      <header class="top-bar">
+        <div class="left-controls">
+          <button class="icon-btn sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="model-badge">
+            <span class="pulse-dot"></span>
+            <span class="model-name">gemini-2.5-flash</span>
+          </div>
+        </div>
+        <div class="right-controls">
+          <button class="icon-btn" id="clear-chat-btn" title="Clear current chat">
+            <i data-lucide="trash-2"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Chat Window -->
+      <div class="chat-window" id="chat-window">
+        <!-- Welcome Screen (shown when there are no messages) -->
+        <div class="welcome-screen" id="welcome-screen">
+          <div class="welcome-hero">
+            <div class="welcome-icon animate-float">
+              <i data-lucide="bot"></i>
+            </div>
+            <h1>How can I help you today?</h1>
+            <p>Aether AI is powered by Gemini to assist with writing, coding, brainstorming, and more.</p>
+          </div>
+
+          <div class="suggestions-grid">
+            <div class="suggestion-card" data-prompt="Explain Quantum Computing in simple terms">
+              <div class="suggestion-icon"><i data-lucide="atom"></i></div>
+              <h3>Explain Quantum Computing</h3>
+              <p>Break it down for a complete beginner</p>
+            </div>
+            <div class="suggestion-card" data-prompt="Write a JavaScript function to throttle API requests">
+              <div class="suggestion-icon"><i data-lucide="code-2"></i></div>
+              <h3>Throttle API requests</h3>
+              <p>Write a clean, reusable JS function</p>
+            </div>
+            <div class="suggestion-card" data-prompt="Draft a polite email asking for feedback on a project">
+              <div class="suggestion-icon"><i data-lucide="mail"></i></div>
+              <h3>Draft a feedback email</h3>
+              <p>Professional and polite outreach</p>
+            </div>
+            <div class="suggestion-card" data-prompt="Help me brainstorm 5 unique ideas for a sci-fi novel">
+              <div class="suggestion-icon"><i data-lucide="lightbulb"></i></div>
+              <h3>Brainstorm novel ideas</h3>
+              <p>Creative sci-fi concepts and twists</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Message List -->
+        <div class="message-list" id="message-list" style="display: none;">
+          <!-- Dynamically populated messages will go here -->
+        </div>
+      </div>
+
+      <!-- Input Area -->
+      <footer class="input-container">
+        <div class="input-wrapper">
+          <textarea 
+            id="chat-input" 
+            placeholder="Type a message or paste code..." 
+            rows="1"
+            autocomplete="off"
+          ></textarea>
+          <div class="input-actions">
+            <span class="char-counter" id="char-counter">0</span>
+            <button class="send-btn" id="send-btn" disabled aria-label="Send message">
+              <i data-lucide="arrow-up"></i>
+            </button>
+          </div>
+        </div>
+        <div class="input-footer-text">
+          Aether AI can make mistakes. Verify important information.
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
